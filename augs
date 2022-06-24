@@ -1,0 +1,65 @@
+
+
+import PIL
+import os
+import os.path
+from PIL import Image
+
+f = r'D:/Dataset/Outflow'
+g=r'D:/Dataset/Out'
+for file in os.listdir(f):
+    try:
+        g_img = g+"/"+file
+        f_img = f+"/"+file
+        img = Image.open(f_img)
+        img.save(g_img)
+    except:
+        pass
+for file in os.listdir(f):
+    try:
+        f_img = f+"/"+file
+        g_img = g+"/"+file[:-4]+"-HV.bmp"
+        img = Image.open(f_img)
+        img1=img.transpose(Image.FLIP_LEFT_RIGHT)
+        img2=img1.transpose(Image.FLIP_TOP_BOTTOM)
+        img2.save(g_img)
+    except:
+        pass
+
+for file in os.listdir(f):
+    try:
+        f_img = f+"/"+file
+        g_img = g+"/"+file[:-4]+"-H.bmp"
+
+        img = Image.open(f_img)    
+        img1=img.transpose(Image.FLIP_LEFT_RIGHT)
+        # img.transpose(Image.FLIP_TOP_BOTTOM)
+        img1.save(g_img)
+    except:
+        pass
+for file in os.listdir(f):
+    try:
+        f_img = f+"/"+file
+        g_img = g+"/"+file[:-4]+"-V.bmp"
+
+        img = Image.open(f_img)    
+        # img.transpose(Image.FLIP_LEFT_RIGHT)
+        img1=img.transpose(Image.FLIP_TOP_BOTTOM)
+        img1.save(g_img)
+    except:
+        pass
+        
+        
+ 
+ 
+ 
+ import PIL
+import os
+from PIL import Image
+
+f = r'E:/SEM AI Frontier Solutions/CycleGANSanity/Dataset/Chipping'
+for file in os.listdir(f):
+    f_img = f+"/"+file
+    img = Image.open(f_img)
+    img = img.resize((256,256))
+    img.save(f_img)
